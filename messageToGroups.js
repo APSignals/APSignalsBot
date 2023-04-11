@@ -80,6 +80,17 @@ bot.on('message', (msg) => {
             })
     } else if (users.has(msg.from.id) && users.get(msg.from.id).option === 'Suggestion') {
         sendTheMessageToGroup(msg, '-1001590350821')
+    } else if (msg.text === 'Criticism') {
+        bot.sendMessage(msg.chat.id, 'Please enter your criticism:', options)
+            .then(() => {
+                // Save the selected option and chat ID to the users map
+                users.set(msg.from.id, { option: msg.text, chatId: msg.chat.id })
+            })
+            .catch((error) => {
+                console.log(`Error occurred while sending message: ${error}`)
+            })
+    } else if (users.has(msg.from.id) && users.get(msg.from.id).option === 'Criticism') {
+        sendTheMessageToGroup(msg, '-1001590350821')
     } else {
         bot.sendMessage(msg.chat.id, 'I do not understand. Please select an option from the keyboard below:', options)
             .catch((error) => {
