@@ -79,7 +79,7 @@ bot.on('message', (msg) => {
                 console.log(`Error occurred while sending message: ${error}`)
             })
     } else if (users.has(msg.from.id) && users.get(msg.from.id).option === 'Suggestion') {
-        sendTheMessageToGroup(msg, '-1001590350821')
+        sendTheMessageToGroup(msg, '-1001733809963')
     } else if (msg.text === 'Criticism') {
         bot.sendMessage(msg.chat.id, 'Please enter your criticism:', options)
             .then(() => {
@@ -90,9 +90,9 @@ bot.on('message', (msg) => {
                 console.log(`Error occurred while sending message: ${error}`)
             })
     } else if (users.has(msg.from.id) && users.get(msg.from.id).option === 'Criticism') {
-        sendTheMessageToGroup(msg, '-1001590350821')
+        sendTheMessageToGroup(msg, '-1001733809963')
     } else {
-        bot.sendMessage(msg.chat.id, 'I do not understand. Please select an option from the keyboard below:', options)
+        bot.sendMessage(msg.chat.id, 'Please select an option from the keyboard below:', options)
             .catch((error) => {
                 console.log(`Error occurred while sending message: ${error}`)
             })
